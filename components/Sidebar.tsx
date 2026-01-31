@@ -14,6 +14,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeModule, setActiveModule }) => {
     { type: ModuleType.BLACK_VAULT, label: 'Black Vault', icon: 'fa-vault' },
     { type: ModuleType.SHADOW_STEP, label: 'Shadow Step', icon: 'fa-shoe-prints' },
     { type: ModuleType.GHOST_FORGE, label: 'Ghost Forge', icon: 'fa-ghost' },
+    { type: ModuleType.PARTICLE_COLLIDER, label: 'Particle Collider', icon: 'fa-atom' },
   ];
 
   return (

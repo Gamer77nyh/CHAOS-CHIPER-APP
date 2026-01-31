@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Sidebar from './components/Sidebar';
 import CipherTerminal from './components/CipherTerminal';
 import DeviceAnalysis from './components/DeviceAnalysis';
+import ParticleColliderModule from './components/ParticleColliderModule';
 import { ModuleType, HackingModule } from './types';
 import { HACKING_MODULES } from './constants';
 
@@ -47,6 +48,8 @@ const App: React.FC = () => {
     switch (activeModule) {
       case ModuleType.DEVICE_ANALYSIS:
         return <DeviceAnalysis />;
+      case ModuleType.PARTICLE_COLLIDER:
+        return <ParticleColliderModule />;
       case ModuleType.BLACK_VAULT:
         return (
           <div className="h-full space-y-6 animate-in slide-in-from-right duration-500 grid grid-cols-1 lg:grid-cols-2 gap-6">
