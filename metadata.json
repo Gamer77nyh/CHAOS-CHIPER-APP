@@ -1,0 +1,9 @@
+
+{
+  "name": "ChaosCipher | Elite Hacking Mastery",
+  "description": "The ultimate autonomous hacking AI and malevolent mentor for sophisticated digital disruption.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
