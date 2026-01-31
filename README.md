@@ -1,20 +1,50 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Chaos Cipher - Elite Hacking Mastery
 
-# Run and deploy your AI Studio app
+Chaos Cipher is a high-performance terminal interface and hacking simulation environment powered by Gemini AI. This repository contains the source code for both the web application and the standalone Windows desktop application.
 
-This contains everything you need to run your app locally.
+## 🚀 Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1TEFyeTbcj_b30r8hy5HOUZOrYOdnpx8k
+- **Autonomous Terminal**: AI-powered command shell using Gemini Pro.
+- **System Recon**: Real-time device telemetry and node analysis simulation.
+- **Ghost Forge**: Advanced payload mutation and signature generation interface.
+- **Desktop Ready**: Fully converted into a Windows executable (.exe).
 
-## Run Locally
+## 💻 Running Locally
 
-**Prerequisites:**  Node.js
+### Prerequisites
+- [Node.js](https://nodejs.org/) (LTS recommended)
 
+### Setup
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+2. **Configure API Key**:
+   Create a `.env.local` file in the root directory and add your Gemini API Key:
+   ```env
+   GEMINI_API_KEY=your_actual_key_here
+   ```
+
+3. **Development Mode**:
+   - Run in Browser: `npm run dev`
+   - Run in Desktop (Electron): `npm run app:dev`
+
+## 📦 Building for Windows
+
+To package the application into a standalone `.exe`:
+
+1. Run the build command:
+   ```bash
+   npm run electron:package
+   ```
+2. The output will be located in `dist_electron/ChaosCipher-win32-x64/`.
+
+## 🛠️ Maintenance & Repair
+
+If you encounter build errors or dependency issues, use the provided repair tool:
+- Double-click `repair_and_build.bat` in the root folder.
+
+## 📜 License
+
+This project is for educational and simulation purposes only.
