@@ -6,7 +6,11 @@ import { GestureService } from '../services/gestureService';
 import { AppSettings, GestureData, VisualMode } from '../types';
 import { Fingerprint, Zap } from 'lucide-react';
 
-const ParticleColliderModule: React.FC = () => {
+interface ParticleColliderModuleProps {
+  onExit?: () => void;
+}
+
+const ParticleColliderModule: React.FC<ParticleColliderModuleProps> = ({ onExit }) => {
   const [isInitialized, setIsInitialized] = useState(false);
   const [textInput, setTextInput] = useState('');
   const [activeText, setActiveText] = useState('');
@@ -208,6 +212,7 @@ const ParticleColliderModule: React.FC = () => {
         settings={settings} setSettings={setSettings} gestureData={gestureData} textInput={textInput} 
         setTextInput={setTextInput} onEnter={handleEnter} fps={fps} permissionError={permissionError} 
         onRetryCamera={startCamera} manualMode={manualMode} onToggleManual={() => { setManualMode(!manualMode); setPermissionError(null); }}
+        onExit={onExit}
       />
     </div>
   );

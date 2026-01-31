@@ -19,11 +19,13 @@ interface HUDProps {
   onRetryCamera: () => void;
   manualMode: boolean;
   onToggleManual: () => void;
+  onExit?: () => void;
 }
 
 const HUD: React.FC<HUDProps> = ({ 
   settings, setSettings, gestureData, textInput, setTextInput, 
-  onEnter, fps, permissionError, onRetryCamera, manualMode, onToggleManual 
+  onEnter, fps, permissionError, onRetryCamera, manualMode, onToggleManual,
+  onExit
 }) => {
   const modes: VisualMode[] = ['Dust', 'Energy', 'Matrix', 'Stellar'];
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -44,21 +46,33 @@ const HUD: React.FC<HUDProps> = ({
       
       {/* Top Bar */}
       <div className="flex justify-between items-start">
-        <div className="bg-black/80 backdrop-blur-md border border-cyan-500/30 p-4 rounded-lg pointer-events-auto shadow-[0_0_20px_rgba(34,211,238,0.15)]">
-          <div className="flex items-center gap-3 mb-2">
-            <Shield size={16} />
-            <span className="text-[10px] uppercase tracking-widest font-bold">SYSTEM_CORE: STABLE</span>
-          </div>
-          <div className="grid grid-cols-2 gap-x-4 text-[9px]">
-            <div className="flex justify-between">
-              <span className="opacity-60 uppercase">FPS</span>
-              <span className="font-bold ml-2 text-cyan-300">{fps}</span>
+        <div className="flex gap-4">
+          <div className="bg-black/80 backdrop-blur-md border border-cyan-500/30 p-4 rounded-lg pointer-events-auto shadow-[0_0_20px_rgba(34,211,238,0.15)]">
+            <div className="flex items-center gap-3 mb-2">
+              <Shield size={16} />
+              <span className="text-[10px] uppercase tracking-widest font-bold">SYSTEM_CORE: STABLE</span>
             </div>
-            <div className="flex justify-between">
-              <span className="opacity-60 uppercase">STATE</span>
-              <span className="text-green-500">SYNCED</span>
+            <div className="grid grid-cols-2 gap-x-4 text-[9px]">
+              <div className="flex justify-between">
+                <span className="opacity-60 uppercase">FPS</span>
+                <span className="font-bold ml-2 text-cyan-300">{fps}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="opacity-60 uppercase">STATE</span>
+                <span className="text-green-500">SYNCED</span>
+              </div>
             </div>
           </div>
+
+          {onExit && (
+            <button 
+              onClick={onExit}
+              className="bg-black/80 backdrop-blur-md border border-red-500/50 p-4 rounded-lg pointer-events-auto hover:bg-red-500/20 transition-all flex flex-col items-center justify-center min-w-[80px]"
+            >
+              <Zap size={16} className="text-red-500 mb-1" />
+              <span className="text-[10px] uppercase font-bold text-red-500">EXIT_HUD</span>
+            </button>
+          )}
         </div>
 
         <div className="absolute left-1/2 -translate-x-1/2 w-full max-w-xl pointer-events-auto">
