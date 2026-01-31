@@ -164,7 +164,7 @@ const App: React.FC = () => {
               <div className="flex-1 min-h-[500px]">
                 <CipherTerminal />
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 {HACKING_MODULES.map(m => (
                   <button 
                     key={m.id}
