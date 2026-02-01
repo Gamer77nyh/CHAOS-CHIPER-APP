@@ -1,10 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @import "@fontsource/orbitron";
 @import "@fontsource/jetbrains-mono";
 @import "@fortawesome/fontawesome-free/css/all.min.css";
+
+@theme {
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-hacker-green: #00ff41;
+  --color-hacker-red: #ff0000;
+  --color-hacker-bg: #050505;
+}
 
 :root {
   --hacker-green: #00ff41;
