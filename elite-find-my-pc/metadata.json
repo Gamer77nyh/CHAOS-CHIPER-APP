@@ -1,0 +1,7 @@
+{
+  "name": "Elite Find My PC - JARVIS Dashboard",
+  "description": "A futuristic, mobile-optimized command center for remote PC tracking, security, and real-time system monitoring.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

@@ -9,6 +9,8 @@ export enum ModuleType {
   THREAT_MAP = 'THREAT_MAP'
 }
 
+export type IntelligenceMode = 'MAINFRAME' | 'NEURAL_CORE';
+
 export type VisualMode = 'Dust' | 'Energy' | 'Matrix' | 'Stellar';
 
 export interface GestureData {
