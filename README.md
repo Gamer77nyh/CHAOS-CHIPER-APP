@@ -30,21 +30,6 @@ Chaos Cipher is a high-performance terminal interface and hacking simulation env
    - Run in Browser: `npm run dev`
    - Run in Desktop (Electron): `npm run app:dev`
 
-## 🌐 Deployment (Web)
-
-Chaos Cipher can be deployed as a high-performance web application on **Vercel**:
-
-1. **Push to GitHub**: (Already completed).
-2. **Connect to Vercel**:
-   - Go to [Vercel.com](https://vercel.com).
-   - Click **"New Project"**.
-   - Import this GitHub repository.
-3. **Configure Environment Variables**:
-   - During the import, add a **New Environment Variable**:
-     - **Key**: `GEMINI_API_KEY`
-     - **Value**: `your_actual_key_here`
-4. **Deploy**: Vercel will automatically detect the Vite configuration and deploy your terminal to the web.
-
 ## 📦 Building for Windows
 
 To package the application into a standalone `.exe`:
