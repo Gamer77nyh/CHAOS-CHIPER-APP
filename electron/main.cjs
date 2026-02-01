@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -12,7 +12,11 @@ function createWindow() {
     },
     backgroundColor: '#000000',
     title: 'Chaos Cipher - Elite Hacking Mastery',
+    autoHideMenuBar: true,
   });
+
+  // Remove the menu bar completely
+  Menu.setApplicationMenu(null);
 
   if (isDev) {
     mainWindow.loadURL('http://localhost:3000');
