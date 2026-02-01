@@ -5,7 +5,8 @@ export enum ModuleType {
   GHOST_FORGE = 'GHOST_FORGE',
   DEVICE_ANALYSIS = 'DEVICE_ANALYSIS',
   TERMINAL = 'TERMINAL',
-  PARTICLE_COLLIDER = 'PARTICLE_COLLIDER'
+  PARTICLE_COLLIDER = 'PARTICLE_COLLIDER',
+  THREAT_MAP = 'THREAT_MAP'
 }
 
 export type VisualMode = 'Dust' | 'Energy' | 'Matrix' | 'Stellar';

@@ -4,12 +4,15 @@ import Sidebar from './components/Sidebar';
 import CipherTerminal from './components/CipherTerminal';
 import DeviceAnalysis from './components/DeviceAnalysis';
 import ParticleColliderModule from './components/ParticleColliderModule';
+import GlobalThreatMap from './components/GlobalThreatMap';
 import { ModuleType, HackingModule } from './types';
 import { HACKING_MODULES } from './constants';
+import { soundService } from './services/SoundService';
 
 const App: React.FC = () => {
   const [activeModule, setActiveModule] = useState<ModuleType>(ModuleType.TERMINAL);
   const [logs, setLogs] = useState<string[]>([]);
+  const [isAudioStarted, setIsAudioStarted] = useState(false);
   const [stats, setStats] = useState({
     exfiltrated: 412.04,
     targets: 1892,
@@ -50,6 +53,8 @@ const App: React.FC = () => {
         return <DeviceAnalysis />;
       case ModuleType.PARTICLE_COLLIDER:
         return <ParticleColliderModule onExit={() => setActiveModule(ModuleType.TERMINAL)} />;
+      case ModuleType.THREAT_MAP:
+        return <GlobalThreatMap />;
       case ModuleType.BLACK_VAULT:
         return (
           <div className="h-full space-y-6 animate-in slide-in-from-right duration-500 grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -164,7 +169,7 @@ const App: React.FC = () => {
               <div className="flex-1 min-h-[500px]">
                 <CipherTerminal />
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 {HACKING_MODULES.map(m => (
                   <button 
                     key={m.id}
@@ -218,8 +223,29 @@ const App: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    const handleFirstClick = () => {
+      if (!isAudioStarted) {
+        soundService.startAmbientDrone();
+        setIsAudioStarted(true);
+      }
+    };
+    window.addEventListener('click', handleFirstClick);
+    window.addEventListener('keydown', handleFirstClick);
+    return () => {
+      window.removeEventListener('click', handleFirstClick);
+      window.removeEventListener('keydown', handleFirstClick);
+    };
+  }, [isAudioStarted]);
+
+  useEffect(() => {
+    if (isAudioStarted) {
+      soundService.playGlitchSound();
+    }
+  }, [activeModule, isAudioStarted]);
+
   return (
-    <div className="flex h-screen bg-black grid-bg overflow-hidden select-none">
+    <div className="flex h-screen bg-black grid-bg overflow-hidden select-none" onKeyDown={() => soundService.playTypingSound()}>
       <Sidebar activeModule={activeModule} setActiveModule={setActiveModule} />
       
       <main className="flex-1 relative flex flex-col p-4 md:p-6 lg:p-8">
