@@ -101,9 +101,9 @@ const GlobalThreatMap: React.FC = () => {
           <div className="bg-black/60 border border-green-500/20 p-2 backdrop-blur-md">
             <div className="text-[8px] text-green-900 font-bold mb-1 uppercase tracking-widest">Incursion_Feed</div>
             <div className="text-[7px] text-green-500 font-mono space-y-1">
-              <div>> SIPHON_START: TOKYO_CENTRAL</div>
-              <div>> BYPASS_SUCCESS: NY_FED_RESERVE</div>
-              <div>> PIVOT_ACTIVE: LONDON_BRIDGE</div>
+              <div>{">"} SIPHON_START: TOKYO_CENTRAL</div>
+              <div>{">"} BYPASS_SUCCESS: NY_FED_RESERVE</div>
+              <div>{">"} PIVOT_ACTIVE: LONDON_BRIDGE</div>
             </div>
           </div>
         </div>
