@@ -55,6 +55,15 @@ export const HACKING_MODULES: HackingModule[] = [
     type: ModuleType.THREAT_MAP,
     description: 'Live visualization of the global digital battlefield. Tracks active siphoning operations, satellite relay paths, and the density of your compromised node network across all continents.',
     capabilities: ['Real-time Tracking', 'Satellite Relay Mapping', 'Incursion Pulses', 'Node Density Analysis']
+  },
+  {
+    id: 'inspect-pc',
+    title: 'INSPECT',
+    subtitle: 'Remote Device Surveillance',
+    icon: 'fa-search-location',
+    type: ModuleType.FIND_MY_PC,
+    description: 'Advanced device tracking and remote surveillance nexus. Access real-time camera feeds, monitor system vitals, and track geographic movements of compromised target hardware.',
+    capabilities: ['Remote Cam Feed', 'System Vitals Monitor', 'Geo-Location Tracking', 'Security Log Access']
   }
 ];
 

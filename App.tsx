@@ -5,6 +5,7 @@ import CipherTerminal from './components/CipherTerminal';
 import DeviceAnalysis from './components/DeviceAnalysis';
 import ParticleColliderModule from './components/ParticleColliderModule';
 import GlobalThreatMap from './components/GlobalThreatMap';
+import InspectModule from './components/InspectModule';
 import { ModuleType, HackingModule } from './types';
 import { HACKING_MODULES } from './constants';
 import { soundService } from './services/SoundService';
@@ -55,6 +56,8 @@ const App: React.FC = () => {
         return <ParticleColliderModule onExit={() => setActiveModule(ModuleType.TERMINAL)} />;
       case ModuleType.THREAT_MAP:
         return <GlobalThreatMap />;
+      case ModuleType.FIND_MY_PC:
+        return <InspectModule />;
       case ModuleType.BLACK_VAULT:
         return (
           <div className="h-full space-y-6 animate-in slide-in-from-right duration-500 grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -169,7 +172,7 @@ const App: React.FC = () => {
               <div className="flex-1 min-h-[500px]">
                 <CipherTerminal />
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
                 {HACKING_MODULES.map(m => (
                   <button 
                     key={m.id}

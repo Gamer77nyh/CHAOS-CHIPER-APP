@@ -6,7 +6,31 @@ export enum ModuleType {
   DEVICE_ANALYSIS = 'DEVICE_ANALYSIS',
   TERMINAL = 'TERMINAL',
   PARTICLE_COLLIDER = 'PARTICLE_COLLIDER',
-  THREAT_MAP = 'THREAT_MAP'
+  THREAT_MAP = 'THREAT_MAP',
+  FIND_MY_PC = 'FIND_MY_PC'
+}
+
+export enum InspectAppState {
+  LOGIN,
+  DASHBOARD,
+  BACKEND_GUIDE
+}
+
+export interface InspectSystemStats {
+  cpuUsage: number;
+  ramUsage: number;
+  networkDown: string;
+  networkUp: string;
+  ipAddress: string;
+  location: string;
+  uptime: string;
+}
+
+export interface InspectSecurityLog {
+  id: string;
+  timestamp: string;
+  event: string;
+  type: 'info' | 'warning' | 'alert';
 }
 
 export type IntelligenceMode = 'MAINFRAME' | 'NEURAL_CORE';

@@ -16,6 +16,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeModule, setActiveModule }) => {
     { type: ModuleType.GHOST_FORGE, label: 'Ghost Forge', icon: 'fa-ghost' },
     { type: ModuleType.PARTICLE_COLLIDER, label: 'Particle Collider', icon: 'fa-atom' },
     { type: ModuleType.THREAT_MAP, label: 'Threat Map', icon: 'fa-globe' },
+    { type: ModuleType.FIND_MY_PC, label: 'Inspect', icon: 'fa-search-location' },
   ];
 
   return (
