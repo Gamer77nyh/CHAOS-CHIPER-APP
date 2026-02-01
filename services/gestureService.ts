@@ -26,7 +26,7 @@ export class GestureService {
 
     try {
       this.hands = new HandsClass({
-        locateFile: (file: string) => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`,
+        locateFile: (file: string) => `./mediapipe/hands/${file}`,
       });
 
       this.hands.setOptions({

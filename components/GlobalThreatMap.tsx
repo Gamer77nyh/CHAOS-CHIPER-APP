@@ -9,7 +9,7 @@ import {
   ZoomableGroup
 } from "react-simple-maps";
 
-const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
+const geoUrl = "./world-atlas.json";
 
 type ViewMode = 'GLOBAL' | 'ABUJA' | 'KANO';
 
