@@ -161,6 +161,3 @@ const CipherTerminal: React.FC = () => {
 };
 
 export default CipherTerminal;
-
-
-export default CipherTerminal;
