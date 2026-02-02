@@ -18,6 +18,16 @@ function createWindow() {
   // Remove the menu bar completely
   Menu.setApplicationMenu(null);
 
+  // Handle permission requests
+  mainWindow.webContents.session.setPermissionRequestHandler((webContents, permission, callback) => {
+    const allowedPermissions = ['media', 'camera', 'microphone'];
+    if (allowedPermissions.includes(permission)) {
+      callback(true); // Approve permissions automatically
+    } else {
+      callback(false); // Deny others
+    }
+  });
+
   if (isDev) {
     mainWindow.loadURL('http://localhost:3000');
     // Open DevTools in dev mode

@@ -10,13 +10,29 @@ const InspectCameraFeed: React.FC = () => {
   const startCamera = async () => {
     setLoading(true);
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      // First, try to stop any existing tracks to prevent conflicts
+      if (videoRef.current && videoRef.current.srcObject) {
+        const stream = videoRef.current.srcObject as MediaStream;
+        stream.getTracks().forEach(track => track.stop());
+      }
+
+      const stream = await navigator.mediaDevices.getUserMedia({ 
+        video: { 
+          width: { ideal: 640 },
+          height: { ideal: 480 },
+          facingMode: "user"
+        } 
+      });
+      
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
         setHasPermission(true);
       }
-    } catch (err) {
-      console.error("Camera access denied", err);
+    } catch (err: any) {
+      console.error("Camera access error:", err);
+      if (err.name === 'NotReadableError' || err.name === 'TrackStartError') {
+        alert("CRITICAL: Camera is already in use by another module (e.g. Particle Collider). Close other sensors to engage Shadow Link.");
+      }
       setHasPermission(false);
     } finally {
       setLoading(false);
