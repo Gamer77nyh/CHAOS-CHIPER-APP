@@ -85,29 +85,29 @@ if __name__ == "__main__":
   };
 
   return (
-    <div className="h-full overflow-y-auto p-6 space-y-8 terminal-scrollbar bg-black/40 backdrop-blur-md animate-in fade-in slide-in-from-bottom-4 duration-500">
+    <div className="flex-1 overflow-y-auto p-6 space-y-8 terminal-scrollbar bg-black/40 backdrop-blur-md animate-in fade-in slide-in-from-bottom-4 duration-500">
       <button 
         onClick={onBack}
-        className="flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors font-orbitron text-[10px] font-black tracking-widest uppercase"
+        className="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors font-orbitron text-[10px] font-black tracking-widest uppercase"
       >
         <ArrowLeft className="w-4 h-4" /> RETURN_TO_NEXUS
       </button>
 
-      <div className="bg-slate-900/40 border border-blue-500/20 rounded-2xl p-8 space-y-6 shadow-[0_0_30px_rgba(37,99,235,0.05)]">
+      <div className="bg-green-950/20 border border-green-500/20 rounded-2xl p-8 space-y-6 shadow-[0_0_30px_rgba(34,197,94,0.05)]">
         <h2 className="text-3xl font-orbitron font-bold text-white flex items-center gap-4 tracking-tighter">
-          <Terminal className="w-8 h-8 text-blue-400" /> SYSTEM_SETUP_PROTOCOL
+          <Terminal className="w-8 h-8 text-green-400" /> SYSTEM_SETUP_PROTOCOL
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-4">
-            <h3 className="text-[11px] font-orbitron font-black text-blue-400 flex items-center gap-2 tracking-[0.2em] uppercase">
+            <h3 className="text-[11px] font-orbitron font-black text-green-400 flex items-center gap-2 tracking-[0.2em] uppercase">
               <Monitor className="w-5 h-5 opacity-50" /> 01_PREPARATION
             </h3>
-            <ol className="list-decimal list-inside space-y-3 text-slate-400 text-[10px] font-bold tracking-wider uppercase leading-relaxed">
-              <li>Deploy <span className="text-blue-400">Python 3.10+</span> on target environment.</li>
+            <ol className="list-decimal list-inside space-y-3 text-green-900 text-[10px] font-bold tracking-wider uppercase leading-relaxed">
+              <li>Deploy <span className="text-green-400">Python 3.10+</span> on target environment.</li>
               <li>Initialize PowerShell with Elevated Privileges.</li>
               <li>Inject dependencies:
-                <div className="mt-2 p-3 bg-black border border-blue-500/10 rounded font-mono text-[9px] text-green-500 shadow-inner">
+                <div className="mt-2 p-3 bg-black border border-green-500/10 rounded font-mono text-[9px] text-green-500 shadow-inner">
                   pip install flask flask-httpauth psutil opencv-python pystray pillow requests
                 </div>
               </li>
@@ -115,13 +115,13 @@ if __name__ == "__main__":
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-[11px] font-orbitron font-black text-blue-400 flex items-center gap-2 tracking-[0.2em] uppercase">
+            <h3 className="text-[11px] font-orbitron font-black text-green-400 flex items-center gap-2 tracking-[0.2em] uppercase">
               <Globe className="w-5 h-5 opacity-50" /> 02_REMOTE_LINK
             </h3>
-            <p className="text-[10px] text-slate-400 font-bold tracking-wider leading-relaxed uppercase">
+            <p className="text-[10px] text-green-900 font-bold tracking-wider leading-relaxed uppercase">
               Establish a secure tunnel to bypass local firewalls using <span className="text-white">NGROK</span> or <span className="text-white">CLOUDFLARE</span> targeting port 5000.
             </p>
-            <div className="p-3 bg-blue-500/5 border border-blue-500/20 rounded-lg text-[9px] text-blue-300/60 italic font-mono uppercase">
+            <div className="p-3 bg-green-500/5 border border-green-500/20 rounded-lg text-[9px] text-green-300/60 italic font-mono uppercase">
               "Ngrok http 5000" generates a global endpoint for this command shell.
             </div>
           </div>
@@ -129,21 +129,21 @@ if __name__ == "__main__":
 
         <div className="mt-8 space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-[11px] font-orbitron font-black text-blue-400 flex items-center gap-2 tracking-[0.2em] uppercase">
+            <h3 className="text-[11px] font-orbitron font-black text-green-400 flex items-center gap-2 tracking-[0.2em] uppercase">
               <Code className="w-5 h-5 opacity-50" /> 03_BACKEND_PAYLOAD
             </h3>
             <button 
               onClick={copyToClipboard}
-              className="flex items-center gap-2 px-3 py-1 bg-blue-600/10 border border-blue-600/20 hover:bg-blue-600/30 rounded text-[9px] font-black text-blue-400 transition-all tracking-widest uppercase"
+              className="flex items-center gap-2 px-3 py-1 bg-green-600/10 border border-green-600/20 hover:bg-green-600/30 rounded text-[9px] font-black text-green-400 transition-all tracking-widest uppercase"
             >
               <Copy className="w-3 h-3" /> COPY_PAYLOAD
             </button>
           </div>
-          <div className="p-4 bg-black border border-blue-500/10 rounded-xl font-mono text-[9px] text-blue-400/70 h-64 overflow-y-auto terminal-scrollbar shadow-inner">
+          <div className="p-4 bg-black border border-green-500/10 rounded-xl font-mono text-[9px] text-green-400/70 h-64 overflow-y-auto terminal-scrollbar shadow-inner">
             <pre className="whitespace-pre-wrap">{pythonCode}</pre>
           </div>
-          <p className="text-[9px] text-slate-600 font-bold tracking-widest uppercase">
-            Deploy as <code className="text-blue-500">elite_service.py</code> and execute via <code className="text-blue-500">python elite_service.py</code>.
+          <p className="text-[9px] text-green-900 font-bold tracking-widest uppercase">
+            Deploy as <code className="text-green-500">elite_service.py</code> and execute via <code className="text-green-500">python elite_service.py</code>.
           </p>
         </div>
       </div>

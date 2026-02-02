@@ -57,13 +57,13 @@ export const HACKING_MODULES: HackingModule[] = [
     capabilities: ['Real-time Tracking', 'Satellite Relay Mapping', 'Incursion Pulses', 'Node Density Analysis']
   },
   {
-    id: 'inspect-pc',
-    title: 'INSPECT',
-    subtitle: 'Remote Device Surveillance',
-    icon: 'fa-search-location',
+    id: 'shadow-link',
+    title: 'SHADOW LINK',
+    subtitle: 'Remote Node Surveillance',
+    icon: 'fa-user-secret',
     type: ModuleType.FIND_MY_PC,
-    description: 'Advanced device tracking and remote surveillance nexus. Access real-time camera feeds, monitor system vitals, and track geographic movements of compromised target hardware.',
-    capabilities: ['Remote Cam Feed', 'System Vitals Monitor', 'Geo-Location Tracking', 'Security Log Access']
+    description: 'Advanced stealth tracking and remote surveillance nexus. Access real-time camera feeds, monitor system vitals, and maintain persistent backdoors in target hardware.',
+    capabilities: ['Stealth Cam Feed', 'Node Telemetry', 'Persistent Backdoor', 'Remote Override']
   }
 ];
 

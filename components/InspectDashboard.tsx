@@ -98,22 +98,22 @@ const InspectDashboard: React.FC<InspectDashboardProps> = ({ onShowGuide, onLogo
   }, []);
 
   return (
-    <div className="h-full overflow-y-auto p-6 space-y-6 terminal-scrollbar bg-black/20">
+    <div className="flex-1 overflow-y-auto p-6 space-y-6 terminal-scrollbar bg-black/20">
       {/* Header */}
-      <header className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/40 border border-blue-500/20 rounded-2xl p-6 shadow-[0_0_20px_rgba(37,99,235,0.05)] sticky top-0 z-30 backdrop-blur-md">
+      <header className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-green-950/20 border border-green-500/20 rounded-2xl p-6 shadow-[0_0_20px_rgba(34,197,94,0.05)] sticky top-0 z-30 backdrop-blur-md">
         <div className="flex items-center gap-4">
-          <div className="p-3 bg-blue-500/10 rounded-xl border border-blue-500/20">
-            <Activity className="w-8 h-8 text-blue-400" />
+          <div className="p-3 bg-green-500/10 rounded-xl border border-green-500/20">
+            <Activity className="w-8 h-8 text-green-400" />
           </div>
           <div>
-            <h1 className="text-xl font-orbitron font-bold text-blue-400 tracking-tight">INSPECT_NEXUS</h1>
-            <p className="text-[10px] text-slate-500 font-bold tracking-widest uppercase">Node: TARGET-01 | Status: <span className="text-green-500 animate-pulse">MONITORED</span></p>
+            <h1 className="text-xl font-orbitron font-bold text-green-400 tracking-tight">SHADOW_NEXUS</h1>
+            <p className="text-[10px] text-green-800 font-bold tracking-widest uppercase">Node: TARGET-ALPHA | Status: <span className="text-green-500 animate-pulse">MONITORED</span></p>
           </div>
         </div>
         <div className="flex items-center gap-3">
           <button 
             onClick={onShowGuide}
-            className="flex items-center gap-2 px-4 py-2 bg-blue-600/10 border border-blue-600/20 hover:bg-blue-600/20 rounded-lg text-[10px] font-black tracking-widest uppercase transition-all text-blue-400"
+            className="flex items-center gap-2 px-4 py-2 bg-green-600/10 border border-green-600/20 hover:bg-green-600/20 rounded-lg text-[10px] font-black tracking-widest uppercase transition-all text-green-400"
           >
             <Info className="w-4 h-4" /> SETUP_LOGS
           </button>
@@ -129,48 +129,48 @@ const InspectDashboard: React.FC<InspectDashboardProps> = ({ onShowGuide, onLogo
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 space-y-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <MetricCard label="CPU_LOAD" value={`${stats.cpuUsage}%`} sub="Target_Process" icon={Activity} color="text-blue-400" />
-            <MetricCard label="MEMORY" value={`${stats.ramUsage}%`} sub="Allocated" icon={Shield} color="text-cyan-400" />
+            <MetricCard label="CPU_LOAD" value={`${stats.cpuUsage}%`} sub="Target_Process" icon={Activity} color="text-green-400" />
+            <MetricCard label="MEMORY" value={`${stats.ramUsage}%`} sub="Allocated" icon={Shield} color="text-green-400" />
             <MetricCard label="UPLINK" value={stats.networkUp} sub="Exfiltration" icon={Wifi} color="text-green-400" />
-            <MetricCard label="UPTIME" value={stats.uptime} sub="Session_Age" icon={Globe} color="text-purple-400" />
+            <MetricCard label="UPTIME" value={stats.uptime} sub="Session_Age" icon={Globe} color="text-green-400" />
           </div>
 
-          <div className="bg-slate-900/40 border border-blue-500/10 rounded-2xl p-6 h-80 relative backdrop-blur-sm">
-            <h3 className="text-[10px] font-orbitron font-bold text-blue-900 mb-6 flex items-center gap-2 tracking-widest uppercase">
-              <Activity className="w-4 h-4 text-blue-400" /> PERFORMANCE_TELEMETRY
+          <div className="bg-green-950/20 border border-green-500/10 rounded-2xl p-6 h-80 relative backdrop-blur-sm">
+            <h3 className="text-[10px] font-orbitron font-bold text-green-900 mb-6 flex items-center gap-2 tracking-widest uppercase">
+              <Activity className="w-4 h-4 text-green-400" /> PERFORMANCE_TELEMETRY
             </h3>
             <div className="h-[calc(100%-2rem)]">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={history}>
                   <defs>
                     <linearGradient id="colorCpu" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#38bdf8" stopOpacity={0.3}/>
-                      <stop offset="95%" stopColor="#38bdf8" stopOpacity={0}/>
+                      <stop offset="5%" stopColor="#22c55e" stopOpacity={0.3}/>
+                      <stop offset="95%" stopColor="#22c55e" stopOpacity={0}/>
                     </linearGradient>
                   </defs>
                   <Tooltip 
-                    contentStyle={{ backgroundColor: '#020617', border: '1px solid #1e293b', borderRadius: '8px', fontSize: '10px' }}
-                    itemStyle={{ color: '#38bdf8' }}
+                    contentStyle={{ backgroundColor: '#020617', border: '1px solid #166534', borderRadius: '8px', fontSize: '10px' }}
+                    itemStyle={{ color: '#22c55e' }}
                   />
-                  <Area type="monotone" dataKey="cpu" stroke="#38bdf8" fillOpacity={1} fill="url(#colorCpu)" strokeWidth={2} />
+                  <Area type="monotone" dataKey="cpu" stroke="#22c55e" fillOpacity={1} fill="url(#colorCpu)" strokeWidth={2} />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 border border-blue-500/10 rounded-2xl p-6 backdrop-blur-sm">
+          <div className="bg-green-950/20 border border-green-500/10 rounded-2xl p-6 backdrop-blur-sm">
             <h3 className="text-[10px] font-orbitron font-bold text-orange-900 mb-4 flex items-center gap-2 tracking-widest uppercase">
               <Bell className="w-4 h-4 text-orange-500" /> SECURITY_EVENT_LOG
             </h3>
             <div className="space-y-3">
-              {logs.length === 0 && <p className="text-slate-600 text-[10px] font-bold tracking-widest uppercase italic">Clean_Buffer: No incidents.</p>}
+              {logs.length === 0 && <p className="text-green-900 text-[10px] font-bold tracking-widest uppercase italic opacity-50">Clean_Buffer: No incidents.</p>}
               {logs.map(log => (
-                <div key={log.id} className="flex items-center justify-between py-2 border-b border-slate-800 last:border-0">
+                <div key={log.id} className="flex items-center justify-between py-2 border-b border-green-900/10 last:border-0">
                   <div className="flex items-center gap-3">
-                    <div className={`w-1.5 h-1.5 rounded-full ${log.type === 'alert' ? 'bg-red-500 animate-ping' : log.type === 'warning' ? 'bg-orange-500' : 'bg-blue-500'}`} />
-                    <span className={`text-[10px] font-bold tracking-wider uppercase ${log.type === 'alert' ? 'text-red-500' : 'text-slate-400'}`}>{log.event}</span>
+                    <div className={`w-1.5 h-1.5 rounded-full ${log.type === 'alert' ? 'bg-red-500 animate-ping' : log.type === 'warning' ? 'bg-orange-500' : 'bg-green-500'}`} />
+                    <span className={`text-[10px] font-bold tracking-wider uppercase ${log.type === 'alert' ? 'text-red-500' : 'text-green-400'}`}>{log.event}</span>
                   </div>
-                  <span className="text-[9px] text-slate-600 font-mono">{log.timestamp}</span>
+                  <span className="text-[9px] text-green-900 font-mono">{log.timestamp}</span>
                 </div>
               ))}
             </div>
@@ -178,21 +178,21 @@ const InspectDashboard: React.FC<InspectDashboardProps> = ({ onShowGuide, onLogo
         </div>
 
         <div className="space-y-6">
-          <div className="bg-blue-900/10 border border-blue-500/30 rounded-2xl p-6 backdrop-blur-sm">
+          <div className="bg-green-900/10 border border-green-500/30 rounded-2xl p-6 backdrop-blur-sm">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-[10px] font-orbitron font-black text-blue-400 tracking-[0.2em] uppercase">Security_Advisor</h3>
+              <h3 className="text-[10px] font-orbitron font-black text-green-400 tracking-[0.2em] uppercase">Shadow_Oracle</h3>
               <button onClick={runAiAnalysis} disabled={isLoadingAi} className="p-1 hover:bg-white/5 rounded transition-all">
-                <Activity className={`w-3 h-3 text-blue-500 ${isLoadingAi ? 'animate-spin' : ''}`} />
+                <Activity className={`w-3 h-3 text-green-500 ${isLoadingAi ? 'animate-spin' : ''}`} />
               </button>
             </div>
-            <div className="relative p-4 bg-black/60 rounded-xl border border-blue-500/10 italic text-[11px] text-blue-300/80 leading-relaxed font-mono">
+            <div className="relative p-4 bg-black/60 rounded-xl border border-green-500/10 italic text-[11px] text-green-300/80 leading-relaxed font-mono">
               "{aiAnalysis}"
-              <div className="absolute -bottom-2 -right-2 px-2 py-0.5 bg-blue-600 text-[8px] font-black rounded text-white tracking-widest">ENCRYPTED_FEED</div>
+              <div className="absolute -bottom-2 -right-2 px-2 py-0.5 bg-green-600 text-[8px] font-black rounded text-white tracking-widest">ENCRYPTED_FEED</div>
             </div>
           </div>
 
-          <div className="bg-slate-900/40 border border-blue-500/10 rounded-2xl p-6 space-y-4 backdrop-blur-sm">
-            <h3 className="text-[10px] font-orbitron font-bold text-slate-600 tracking-widest uppercase mb-2">Remote_Override</h3>
+          <div className="bg-green-950/20 border border-green-500/10 rounded-2xl p-6 space-y-4 backdrop-blur-sm">
+            <h3 className="text-[10px] font-orbitron font-bold text-green-900 tracking-widest uppercase mb-2">Remote_Override</h3>
             <button 
               onClick={triggerAlarm}
               className={`w-full py-4 rounded-xl flex items-center justify-center gap-3 text-[10px] font-black tracking-[0.2em] uppercase transition-all ${isAlarming ? 'bg-red-600 text-white animate-pulse' : 'bg-red-500/10 hover:bg-red-500/20 text-red-500 border border-red-500/20'}`}
@@ -201,34 +201,34 @@ const InspectDashboard: React.FC<InspectDashboardProps> = ({ onShowGuide, onLogo
             </button>
             <button 
               onClick={lockPC}
-              className="w-full py-4 rounded-xl flex items-center justify-center gap-3 text-[10px] font-black tracking-[0.2em] uppercase bg-slate-800/40 hover:bg-slate-800/60 text-slate-400 border border-slate-700/50 transition-all"
+              className="w-full py-4 rounded-xl flex items-center justify-center gap-3 text-[10px] font-black tracking-[0.2em] uppercase bg-green-900/10 hover:bg-green-900/20 text-green-400 border border-green-900/30 transition-all"
             >
               <Lock className="w-4 h-4" /> LOCK_NODE
             </button>
           </div>
 
-          <div className="bg-slate-900/40 border border-blue-500/10 rounded-2xl p-6 space-y-4 backdrop-blur-sm">
-            <h3 className="text-[10px] font-orbitron font-bold text-slate-600 tracking-widest uppercase flex items-center justify-between">
+          <div className="bg-green-950/20 border border-green-500/10 rounded-2xl p-6 space-y-4 backdrop-blur-sm">
+            <h3 className="text-[10px] font-orbitron font-bold text-green-900 tracking-widest uppercase flex items-center justify-between">
               LIVE_SURVEILLANCE
               <span className="flex items-center gap-1 text-[8px] bg-red-500/20 text-red-500 px-2 py-0.5 rounded animate-pulse">REC</span>
             </h3>
             <InspectCameraFeed />
           </div>
 
-          <div className="bg-slate-900/40 border border-blue-500/10 rounded-2xl p-6 backdrop-blur-sm">
+          <div className="bg-green-950/20 border border-green-500/10 rounded-2xl p-6 backdrop-blur-sm">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <Globe className="w-5 h-5 text-blue-400 opacity-50" />
+                <Globe className="w-5 h-5 text-green-400 opacity-50" />
                 <div>
-                  <p className="text-[8px] text-slate-600 font-black tracking-widest uppercase">Target_IP</p>
-                  <p className="text-[10px] font-mono text-slate-300 tracking-tighter">{stats.ipAddress}</p>
+                  <p className="text-[8px] text-green-900 font-black tracking-widest uppercase">Target_IP</p>
+                  <p className="text-[10px] font-mono text-green-300 tracking-tighter">{stats.ipAddress}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="w-5 h-5 text-red-400 opacity-50" />
                 <div>
-                  <p className="text-[8px] text-slate-600 font-black tracking-widest uppercase">Location</p>
-                  <p className="text-[10px] font-black text-slate-300 uppercase">{stats.location}</p>
+                  <p className="text-[8px] text-green-900 font-black tracking-widest uppercase">Location</p>
+                  <p className="text-[10px] font-black text-green-300 uppercase">{stats.location}</p>
                 </div>
               </div>
             </div>
@@ -240,13 +240,13 @@ const InspectDashboard: React.FC<InspectDashboardProps> = ({ onShowGuide, onLogo
 };
 
 const MetricCard: React.FC<{ label: string, value: string, sub: string, icon: any, color: string }> = ({ label, value, sub, icon: Icon, color }) => (
-  <div className="bg-slate-900/40 border border-blue-500/10 rounded-2xl p-5 hover:bg-blue-500/5 transition-all group backdrop-blur-sm">
+  <div className="bg-green-950/20 border border-green-500/10 rounded-2xl p-5 hover:bg-green-500/5 transition-all group backdrop-blur-sm">
     <div className="flex items-center justify-between mb-3">
-      <span className="text-[8px] font-orbitron text-slate-600 tracking-[0.2em] font-black uppercase">{label}</span>
+      <span className="text-[8px] font-orbitron text-green-900 tracking-[0.2em] font-black uppercase">{label}</span>
       <Icon className={`w-3 h-3 ${color} opacity-70`} />
     </div>
-    <div className={`text-xl font-bold font-orbitron mb-1 group-hover:scale-105 transition-transform text-slate-200 tracking-tight`}>{value}</div>
-    <div className="text-[8px] text-slate-700 font-black uppercase tracking-widest">{sub}</div>
+    <div className={`text-xl font-bold font-orbitron mb-1 group-hover:scale-105 transition-transform text-green-200 tracking-tight`}>{value}</div>
+    <div className="text-[8px] text-green-900 font-black uppercase tracking-widest">{sub}</div>
   </div>
 );
 

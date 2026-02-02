@@ -11,7 +11,7 @@ const InspectModule: React.FC = () => {
 
   const handleLogin = (pass: string) => {
     // Basic auth logic matching the original
-    if (pass === "admin123") {
+    if (pass === "ETCHERO123") {
       setIsAuthenticated(true);
       setCurrentPage(InspectAppState.DASHBOARD);
     } else {
@@ -25,11 +25,11 @@ const InspectModule: React.FC = () => {
   };
 
   return (
-    <div className="h-full w-full bg-[#050505] relative overflow-hidden flex flex-col font-mono text-blue-500">
+    <div className="h-full w-full bg-[#050505] relative overflow-hidden flex flex-col font-mono text-green-500">
       {/* Background Ambience Specific to Inspect */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-900/10 blur-[120px] rounded-full"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-cyan-900/5 blur-[120px] rounded-full"></div>
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-green-900/10 blur-[120px] rounded-full"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-green-900/5 blur-[120px] rounded-full"></div>
       </div>
 
       <div className="relative z-10 flex-1 flex flex-col">
